@@ -313,8 +313,12 @@ def ui():
     with gr.Blocks(css=css) as demo:
         gr.Markdown(
             """
-            # EasyAnimate: Integrated generation of baseline scheme for videos and images.
-            Generate your videos easily
+            # EasyAnimate: An End-to-End Solution for High-Resolution and Long Video Generation 
+             
+            Generate your videos easily.   
+
+            EasyAnimate is an end-to-end solution for generating high-resolution and long videos. We can train transformer based diffusion generators, train VAEs for processing long videos, and preprocess metadata.   
+            
             [Github](https://github.com/aigc-apps/EasyAnimate/)
             """
         )
@@ -587,8 +591,12 @@ def ui_modelscope(edition, config_path, model_name, savedir_sample):
     with gr.Blocks(css=css) as demo:
         gr.Markdown(
             """
-            # EasyAnimate: Integrated generation of baseline scheme for videos and images.
-            Generate your videos easily
+            # EasyAnimate: An End-to-End Solution for High-Resolution and Long Video Generation 
+             
+            Generate your videos easily.   
+
+            EasyAnimate is an end-to-end solution for generating high-resolution and long videos. We can train transformer based diffusion generators, train VAEs for processing long videos, and preprocess metadata.   
+            
             [Github](https://github.com/aigc-apps/EasyAnimate/)
             """
         )
@@ -750,8 +758,12 @@ def ui_eas(edition, config_path, model_name, savedir_sample):
     with gr.Blocks(css=css) as demo:
         gr.Markdown(
             """
-            # EasyAnimate: Integrated generation of baseline scheme for videos and images.
-            Generate your videos easily
+            # EasyAnimate: An End-to-End Solution for High-Resolution and Long Video Generation 
+             
+            Generate your videos easily.   
+
+            EasyAnimate is an end-to-end solution for generating high-resolution and long videos. We can train transformer based diffusion generators, train VAEs for processing long videos, and preprocess metadata.   
+            
             [Github](https://github.com/aigc-apps/EasyAnimate/)
             """
         )
