@@ -19,5 +19,6 @@ albumentations
 imageio[ffmpeg]
 imageio[pyav]
 tensorboard
+gradio==3.41.2
 diffusers==0.27.0
 transformers==4.37.2
