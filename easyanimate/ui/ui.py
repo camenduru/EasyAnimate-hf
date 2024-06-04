@@ -6,6 +6,7 @@ import os
 import random
 import base64
 import requests
+import pkg_resources
 from datetime import datetime
 from glob import glob
 
@@ -36,6 +37,9 @@ scheduler_dict = {
     "PNDM": PNDMScheduler,
     "DDIM": DDIMScheduler,
 }
+
+gradio_version = pkg_resources.get_distribution("gradio").version
+gradio_version_is_above_4 = True if int(gradio_version.split('.')[0]) >= 4 else False
 
 css = """
 .toolbutton {
@@ -726,12 +730,18 @@ class EasyAnimateController_EAS:
             save_sample_path = os.path.join(self.savedir_sample, prefix + f".png")
             with open(save_sample_path, "wb") as file:
                 file.write(decoded_data)
-            return gr.Image.update(value=save_sample_path, visible=True), gr.Video.update(value=None, visible=False), "Success"
+            if gradio_version_is_above_4:
+                return gr.Image(value=save_sample_path, visible=True), gr.Video(value=None, visible=False), "Success"
+            else:
+                return gr.Image.update(value=save_sample_path, visible=True), gr.Video.update(value=None, visible=False), "Success"
         else:
             save_sample_path = os.path.join(self.savedir_sample, prefix + f".mp4")
             with open(save_sample_path, "wb") as file:
                 file.write(decoded_data)
-            return gr.Image.update(visible=False, value=None), gr.Video.update(value=save_sample_path, visible=True), "Success"
+            if gradio_version_is_above_4:
+                return gr.Image(visible=False, value=None), gr.Video(value=save_sample_path, visible=True), "Success"
+            else:
+                return gr.Image.update(visible=False, value=None), gr.Video.update(value=save_sample_path, visible=True), "Success"
 
 
 def ui_eas(edition, config_path, model_name, savedir_sample):
