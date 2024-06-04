@@ -1,11 +1,11 @@
 import time 
 
 from easyanimate.api.api import infer_forward_api, update_diffusion_transformer_api, update_edition_api
-from easyanimate.ui.ui import ui_modelscope, ui, ui_huggingface
+from easyanimate.ui.ui import ui_modelscope, ui_eas, ui
 
 if __name__ == "__main__":
     # Choose the ui mode  
-    ui_mode = "huggingface"
+    ui_mode = "eas"
     # Server ip
     server_name = "0.0.0.0"
     server_port = 7860
@@ -18,8 +18,8 @@ if __name__ == "__main__":
 
     if ui_mode == "modelscope":
         demo, controller = ui_modelscope(edition, config_path, model_name, savedir_sample)
-    elif ui_mode == "huggingface":
-        demo, controller = ui_huggingface(edition, config_path, model_name, savedir_sample)
+    elif ui_mode == "eas":
+        demo, controller = ui_eas(edition, config_path, model_name, savedir_sample)
     else:
         demo, controller = ui()
 

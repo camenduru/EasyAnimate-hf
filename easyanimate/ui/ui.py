@@ -691,7 +691,7 @@ def post_eas(
     return outputs
 
 
-class EasyAnimateController_HuggingFace:
+class EasyAnimateController_EAS:
     def __init__(self, edition, config_path, model_name, savedir_sample):
         self.savedir_sample = savedir_sample
         os.makedirs(self.savedir_sample, exist_ok=True)
@@ -734,8 +734,8 @@ class EasyAnimateController_HuggingFace:
             return gr.Image.update(visible=False, value=None), gr.Video.update(value=save_sample_path, visible=True), "Success"
 
 
-def ui_huggingface(edition, config_path, model_name, savedir_sample):
-    controller = EasyAnimateController_HuggingFace(edition, config_path, model_name, savedir_sample)
+def ui_eas(edition, config_path, model_name, savedir_sample):
+    controller = EasyAnimateController_EAS(edition, config_path, model_name, savedir_sample)
 
     with gr.Blocks(css=css) as demo:
         gr.Markdown(
