@@ -790,7 +790,11 @@ def ui_eas(edition, config_path, model_name, savedir_sample):
                     with gr.Row():
                         seed_textbox = gr.Textbox(label="Seed", value=43)
                         seed_button  = gr.Button(value="\U0001F3B2", elem_classes="toolbutton")
-                        seed_button.click(fn=lambda: gr.Textbox.update(value=random.randint(1, 1e8)), inputs=[], outputs=[seed_textbox])
+                        seed_button.click(
+                            fn=lambda: gr.Textbox(value=random.randint(1, 1e8)) if gradio_version_is_above_4 else gr.Textbox.update(value=random.randint(1, 1e8)), 
+                            inputs=[], 
+                            outputs=[seed_textbox]
+                        )
 
                     generate_button = gr.Button(value="Generate", variant='primary')
                     
